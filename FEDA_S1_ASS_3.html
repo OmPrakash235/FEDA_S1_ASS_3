@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Validate Form</title>
+	</head>
+	<body>
+		<form>
+			<input id="name" type="text" placeholder="Name"/><br/>
+			<input id="email" type="text" placeholder="Email"/><br/>
+			<input id="phNo" type="text" placeholder="Phone Number"/><br/>
+			<input id="address" type="text" placeholder="Address"/><br/>
+			<input type="button" value="Submit" onclick="validateFields()"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+		
+		validateFields = function() {
+			var count = 0;
+			if(document.getElementById('name').value.length == 0){
+				document.getElementById('name').style.background = "#FF0000";
+				count++;
+			}
+			if(document.getElementById('email').value.length == 0){
+				document.getElementById('email').style.background = "#FF0000";
+				count++;
+			}
+			if(document.getElementById('phNo').value.length == 0){
+				document.getElementById('phNo').style.background = "#FF0000";
+				count++;
+			}
+			if(document.getElementById('address').value.length == 0){
+				document.getElementById('address').style.background = "#FF0000";
+				count++;
+			}
+			if(count > 0){
+				alert("Red marked fields are mandatory.");
+			}
+			else {
+				if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById('email').value)) {  
+					alert("all good");
+				}
+				else {
+					alert("Email is not valid");
+				}
+			}
+		}
+	</script>
+</html>
+</html>
